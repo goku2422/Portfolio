@@ -5,7 +5,10 @@ import { Menu, X, Moon, Sun, Download } from 'lucide-react';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme ? savedTheme === 'dark' : true;
+  });
   const [activeSection, setActiveSection] = useState('home');
 
   const navLinks = [
@@ -18,10 +21,21 @@ const Navbar = () => {
   ];
 
   useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
+
+  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      // Update active section based on scroll position
       const sections = navLinks.map(link => link.href.substring(1));
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -46,6 +60,10 @@ const Navbar = () => {
     link.click();
   };
 
+  const toggleTheme = () => {
+    setIsDarkMode(prev => !prev);
+  };
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -61,10 +79,12 @@ const Navbar = () => {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold"
+            className="text-2xl font-bold cursor-pointer"
           >
-            <span className="text-white">Suraj</span>
-            <span className="text-blue-500">.</span>
+            <a href="#home">
+              <span className="text-white">Suraj</span>
+              <span className="text-blue-500">.</span>
+            </a>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -93,14 +113,20 @@ const Navbar = () => {
 
           {/* Right Side Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            {/* Theme Toggle */}
+            {/* Theme Toggle Button */}
             <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setIsDarkMode(!isDarkMode)}
-              className="p-2 rounded-full border border-blue-500/30 bg-blue-500/10 hover:bg-blue-500/20 transition-colors"
+              whileHover={{ scale: 1.1, rotate: 15 }}
+              whileTap={{ scale: 0.9, rotate: -15 }}
+              onClick={toggleTheme}
+              className="p-2.5 rounded-full border border-blue-500/30 bg-blue-500/10 hover:bg-blue-500/20 transition-all duration-300 flex items-center justify-center cursor-pointer"
+              title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+              aria-label="Toggle Theme"
             >
-              {isDarkMode ? <Moon size={20} className="text-blue-400" /> : <Sun size={20} className="text-yellow-400" />}
+              {isDarkMode ? (
+                <Sun size={20} className="text-yellow-400 animate-pulse" />
+              ) : (
+                <Moon size={20} className="text-blue-500" />
+              )}
             </motion.button>
 
             {/* Download CV Button */}
@@ -108,7 +134,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleDownloadCV}
-              className="flex items-center space-x-2 px-4 py-2 bg-blue-500 text-white rounded-full font-medium hover:bg-blue-600 transition-colors shadow-lg shadow-blue-500/30"
+              className="flex items-center space-x-2 px-4 py-2 bg-blue-500 text-white rounded-full font-medium hover:bg-blue-600 transition-colors shadow-lg shadow-blue-500/30 cursor-pointer"
             >
               <Download size={18} />
               <span>Download CV</span>
@@ -150,6 +176,24 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="pt-4 border-t border-blue-500/20 space-y-3">
+                <motion.button
+                  whileTap={{ scale: 0.95 }}
+                  onClick={toggleTheme}
+                  className="w-full flex items-center justify-center space-x-2 px-4 py-3 border border-blue-500/30 bg-blue-500/10 rounded-full font-medium text-gray-200"
+                >
+                  {isDarkMode ? (
+                    <>
+                      <Sun size={18} className="text-yellow-400" />
+                      <span>Switch to Light Mode</span>
+                    </>
+                  ) : (
+                    <>
+                      <Moon size={18} className="text-blue-500" />
+                      <span>Switch to Dark Mode</span>
+                    </>
+                  )}
+                </motion.button>
+
                 <motion.button
                   whileTap={{ scale: 0.95 }}
                   onClick={handleDownloadCV}

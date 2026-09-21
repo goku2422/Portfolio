@@ -13,8 +13,50 @@ html {
 }
 
 body {
-  background-color: #020817;
-  color: #f3f4f6;
   font-family: system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark body {
+  background-color: #020817;
+  color: #f3f4f6;
+}
+
+html.light body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Light mode overrides */
+html.light .bg-\[\#020817\] {
+  background-color: #f8fafc !important;
+}
+
+html.light .text-white {
+  color: #0f172a !important;
+}
+
+html.light .text-gray-300 {
+  color: #334155 !important;
+}
+
+html.light .text-gray-400 {
+  color: #475569 !important;
+}
+
+html.light .bg-blue-500\/5 {
+  background-color: rgba(59, 130, 246, 0.08) !important;
+}
+
+html.light .border-blue-500\/20 {
+  border-color: rgba(59, 130, 246, 0.25) !important;
+}
+
+html.light .bg-\[\#020817\]\/80 {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.light .bg-\[\#020817\]\/95 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
 }
