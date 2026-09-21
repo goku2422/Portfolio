@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <>
+    <div className="overflow-x-hidden w-full relative">
       <Navbar />
       <Hero />
       <About />
@@ -18,7 +18,7 @@ function App() {
       <Projects />
       <Contact />
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -12,13 +12,13 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: GitBranch, href: 'https://github.com/goku2422', label: 'GitHub' },
-    { icon: Link, href: 'https://linkedin.com/in/suraj-choudhary74b691316', label: 'LinkedIn' },
-    { icon: MessageCircle, href: 'https://wa.me/yournumber', label: 'WhatsApp' },
-    { icon: Mail, href: 'mailto:your@email.com', label: 'Email' },
+    { icon: Link, href: 'https://linkedin.com/in/suraj-choudhary-74b691316', label: 'LinkedIn' },
+    { icon: MessageCircle, href: 'https://wa.me/918955606643', label: 'WhatsApp' },
+    { icon: Mail, href: 'mailto:sc5544221@gmail.com', label: 'Email' },
   ];
 
   return (
-    <footer className="bg-[#020817] border-t border-blue-500/20">
+    <footer className="bg-[#020817] border-t border-blue-500/20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8">
           {/* Left - Logo & Tagline */}
@@ -32,7 +32,7 @@ const Footer = () => {
               <span className="text-white">Suraj</span>
               <span className="text-blue-500">.</span>
             </div>
-            <p className="text-gray-400">Full Stack Developer</p>
+            <p className="text-gray-400">Full Stack Developer | MERN Stack</p>
           </motion.div>
 
           {/* Center - Quick Links */}
@@ -74,7 +74,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   whileHover={{ y: -3, scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-2 rounded-full border border-blue-500/30 bg-blue-500/10 hover:bg-blue-500/20 hover:border-blue-500/50 transition-all"
+                  className="p-2.5 rounded-full border border-blue-500/30 bg-blue-500/10 hover:bg-blue-500/20 hover:border-blue-500/50 transition-all"
                   aria-label={social.label}
                 >
                   <social.icon size={20} className="text-gray-400 hover:text-blue-400" />

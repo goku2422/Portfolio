@@ -10,7 +10,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-[#020817]">
+    <section id="about" className="py-16 sm:py-20 bg-[#020817] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle 
           title="About Me"
@@ -20,8 +20,8 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Side - Introduction */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
@@ -37,16 +37,16 @@ const About = () => {
 
           {/* Right Side - Statistics */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="grid grid-cols-2 gap-4 sm:gap-6"
           >
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                whileHover={{ y: -5, scale: 1.05 }}
+                whileHover={{ y: -5, scale: 1.03 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-blue-500/5 border border-blue-500/20 rounded-2xl p-4 sm:p-6 text-center backdrop-blur-sm hover:border-blue-500/40 hover:bg-blue-500/10 transition-all duration-300"
               >
