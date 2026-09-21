@@ -1,0 +1,5 @@
+<img
+  src={profileImage}
+  alt="Suraj Choudhary"
+  className="w-full h-full object-cover"
+/>
