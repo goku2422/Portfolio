@@ -79,7 +79,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-5xl md:text-7xl font-bold mb-4"
+              className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-4"
             >
               <span className="text-blue-500">Suraj</span>{' '}
               <span className="text-white">Choudhary</span>
@@ -161,15 +161,14 @@ const Hero = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex justify-center lg:justify-end"
+            className="flex justify-center lg:justify-end my-4 lg:my-0"
           >
-            <div className="relative">
+            <div className="relative w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] md:w-[380px] md:h-[380px] lg:w-[400px] lg:h-[400px] flex items-center justify-center">
               {/* Outer rotating ring */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
                 className="absolute inset-0 rounded-full border-2 border-blue-500/30"
-                style={{ width: '420px', height: '420px' }}
               >
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-500 rounded-full shadow-lg shadow-blue-500/50" />
               </motion.div>
@@ -178,16 +177,14 @@ const Hero = () => {
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
-                className="absolute inset-0 rounded-full border border-purple-500/30"
-                style={{ width: '380px', height: '380px', top: '20px', left: '20px' }}
+                className="absolute inset-3 sm:inset-5 rounded-full border border-purple-500/30"
               />
 
               {/* Profile image container */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: 'spring', stiffness: 300 }}
-                className="relative z-10 w-[360px] h-[360px] rounded-full overflow-hidden border-4 border-blue-500/20 shadow-2xl shadow-blue-500/20"
-                style={{ top: '30px', left: '30px' }}
+                className="relative z-10 w-[220px] h-[220px] sm:w-[270px] sm:h-[270px] md:w-[300px] md:h-[300px] lg:w-[320px] lg:h-[320px] rounded-full overflow-hidden border-4 border-blue-500/20 shadow-2xl shadow-blue-500/20"
               >
                 <img
                   src={profileImage}
@@ -208,7 +205,6 @@ const Hero = () => {
                   ease: 'easeInOut',
                 }}
                 className="absolute inset-0 z-0 rounded-full bg-blue-500/20 blur-3xl"
-                style={{ width: '400px', height: '400px', top: '10px', left: '10px' }}
               />
             </div>
           </motion.div>

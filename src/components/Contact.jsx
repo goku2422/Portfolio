@@ -42,7 +42,7 @@ const Contact = () => {
           subtitle="Have a project in mind? Let's build something amazing together."
         />
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Side - Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -50,7 +50,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-blue-500/5 border border-blue-500/20 rounded-2xl p-8 backdrop-blur-sm">
+            <div className="bg-blue-500/5 border border-blue-500/20 rounded-2xl p-5 sm:p-8 backdrop-blur-sm">
               <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
               <div className="space-y-4">
                 {contactInfo.map((item, index) => (
@@ -60,14 +60,14 @@ const Contact = () => {
                     target={item.href !== '#' ? '_blank' : undefined}
                     rel={item.href !== '#' ? 'noopener noreferrer' : undefined}
                     whileHover={{ x: 5 }}
-                    className="flex items-center space-x-4 p-3 rounded-lg hover:bg-blue-500/10 transition-colors group"
+                    className="flex items-center space-x-3 sm:space-x-4 p-2.5 sm:p-3 rounded-lg hover:bg-blue-500/10 transition-colors group overflow-hidden"
                   >
-                    <div className="p-3 rounded-full bg-blue-500/10 border border-blue-500/30 group-hover:border-blue-500/50 transition-colors">
-                      <item.icon size={20} className="text-blue-400" />
+                    <div className="p-2.5 sm:p-3 rounded-full bg-blue-500/10 border border-blue-500/30 group-hover:border-blue-500/50 transition-colors shrink-0">
+                      <item.icon size={18} className="text-blue-400" />
                     </div>
-                    <div>
-                      <p className="text-gray-400 text-sm">{item.label}</p>
-                      <p className="text-white font-medium">{item.value}</p>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-gray-400 text-xs sm:text-sm">{item.label}</p>
+                      <p className="text-white font-medium text-sm sm:text-base truncate">{item.value}</p>
                     </div>
                   </motion.a>
                 ))}
@@ -82,7 +82,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <form onSubmit={handleSubmit} className="bg-blue-500/5 border border-blue-500/20 rounded-2xl p-8 backdrop-blur-sm">
+            <form onSubmit={handleSubmit} className="bg-blue-500/5 border border-blue-500/20 rounded-2xl p-5 sm:p-8 backdrop-blur-sm">
               <div className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-gray-400 text-sm mb-2">

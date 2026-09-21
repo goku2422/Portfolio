@@ -15,7 +15,7 @@ const Services = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle title="My Services" />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
@@ -25,7 +25,7 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-blue-500/5 border border-blue-500/20 rounded-2xl p-6 backdrop-blur-sm hover:border-blue-500/40 hover:bg-blue-500/10 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 group"
+              className="bg-blue-500/5 border border-blue-500/20 rounded-2xl p-5 sm:p-6 backdrop-blur-sm hover:border-blue-500/40 hover:bg-blue-500/10 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 group"
             >
               <div className="text-blue-400 mb-4 group-hover:text-blue-300 transition-colors">
                 {getIcon(service.icon)}
